@@ -1,55 +1,35 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-
-
-type FilterType = 'all' | 'RUBLS' | 'Dollars';
+import Accordion from "./components/Accordion/Accordion";
+import {Rating} from "./components/Rating/Rating";
 
 function App() {
-    const [money, setMoney] = useState([
-        {banknots: 'Dollars', value: 100, number: ' a1234567890'},
-        {banknots: 'Dollars', value: 50, number: ' z1234567890'},
-        {banknots: 'RUBLS', value: 100, number: ' w1234567890'},
-        {banknots: 'Dollars', value: 100, number: ' e1234567890'},
-        {banknots: 'Dollars', value: 50, number: ' c1234567890'},
-        {banknots: 'RUBLS', value: 100, number: ' r1234567890'},
-        {banknots: 'Dollars', value: 50, number: ' x1234567890'},
-        {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
-    ])
-
-const [filter, setFilter] = useState<FilterType>('all')
-
-    let currentMoney = money;
-    if (filter === 'RUBLS') {
-        currentMoney = money.filter((filteredMoney) => filteredMoney.banknots === 'RUBLS')
-    }
-    if (filter === 'Dollars') {
-        currentMoney = money.filter((filteredMoney) => filteredMoney.banknots === 'Dollars')
-    }
-
-    const onClickFilterHandler = (nameButton: FilterType) => {
-        setFilter(nameButton)
-    }
-
+    console.log('App rendering')
     return (
-        <>
-            <ul>
-                {currentMoney.map((el, index) => {
-                    return (
-                        <li key={index}>
-                            <span>{el.banknots}</span>
-                            <span>{el.value}</span>
-                            <span>{el.number}</span>
-                        </li>
-                    )
-                })}
-            </ul>
-            <div style={{marginLeft: '35px'}}>
-                <button onClick={() => onClickFilterHandler ('all')}>all</button>
-                <button onClick={() => onClickFilterHandler ('RUBLS')}>ruble</button>
-                <button onClick={() => onClickFilterHandler ('Dollars')}>dollar</button>
-            </div>
-        </>
-    )
+        <div className="App">
+            {/*<PageTitle title={'This is APP component'}/>*/}
+            {/*<PageTitle title={'My friends'}/>*/}
+            {/*Article1*/}
+            {/*<Rating value={3}/>*/}
+            <Accordion titleValue={'Menu'} collapsed={false}/>
+            <Accordion titleValue={'Users'} collapsed={true}/>
+            {/*<Rating value={0}/>*/}
+            {/*<Rating value={1}/>*/}
+            {/*<Rating value={2}/>*/}
+            {/*<Rating value={3}/>*/}
+            {/*<Rating value={4}/>*/}
+            {/*<Rating value={5}/>*/}
+        </div>
+    );
+}
+
+type PageTitlePropsType = {
+    title: string;
+}
+
+function PageTitle(props: PageTitlePropsType) {
+    console.log('AppTitle rendering')
+    return <h1>{props.title}</h1>
 }
 
 export default App;
