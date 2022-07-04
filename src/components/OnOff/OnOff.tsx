@@ -1,30 +1,44 @@
 import React from 'react';
-import Green from "./Green";
-import Red from "./Red";
 
-type OnOffType = {
-    value: boolean
-}
-export const OnOff = (props: OnOffType) => {
-    return (props.value) ? <Green/> : <Red/>
+type onOffType = {
+    on: boolean
 }
 
-// export const OnOff = (props: OnOffType) => {
-//     if (props.value) {
-//         return (
-//             <div>
-//                 <button style={{color: "green"}}>on</button>
-//                 <button>off</button>
-//                 <button style={{color: "green"}}>circle</button>
-//             </div>
-//         )
-//     } else {
-//         return (
-//             <div>
-//                 <button>on</button>
-//                 <button style={{color: 'red'}}>off</button>
-//                 <button style={{color: "red"}}>circle</button>
-//             </div>
-//         )
-//     }
-// }
+export const OnOff = (props: onOffType) => {
+    const onStyle = {
+        width: '30px',
+        height: '20px',
+        border: '1px solid black',
+        display: 'inline-block',
+        padding: '2px',
+        backgroundColor: props.on ? 'green' : 'white'
+
+    }
+    const offStyle = {
+        width: '30px',
+        height: '20px',
+        border: '1px solid black',
+        display: 'inline-block',
+        padding: '2px',
+        marginLeft: '2px',
+        backgroundColor: props.on ? 'white' : 'red'
+    }
+    const indicatorStyle = {
+        width: '15px',
+        height: '15px',
+        borderRadius: '50%',
+        border: '1px solid black',
+        display: 'inline-block',
+        marginLeft: '5px',
+        backgroundColor: props.on ? 'green' : 'red'
+
+    }
+
+    return (
+        <div>
+            <div style={onStyle}>on</div>
+            <div style={offStyle}>off</div>
+            <div style={indicatorStyle}></div>
+        </div>
+    )
+}
