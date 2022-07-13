@@ -7,26 +7,27 @@ import {UncontrolledAccordion} from "./components/UncontrolledAccordion/Uncontro
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import Accordion from "./components/Accordion/Accordion";
+import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOff";
 
 
 function App() {
     console.log('App rendering')
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+    const [style, setStyle] = useState(false)
+
 
     return (
         <div className="App">
-            <Accordion accordionCollapsed={accordionCollapsed} onClick={()=>setAccordionCollapsed(!accordionCollapsed)} titleValue={'Menu'}/>
-
+            {/*<OnOff style={style} setStyle={setStyle}/>*/}
+            <Accordion accordionCollapsed={accordionCollapsed}
+                       onClick={() => setAccordionCollapsed(!accordionCollapsed)} titleValue={'Menu'}/>
             <UncontrolledRating/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            <OnOff/>
-            <OnOff/>
-            <OnOff/>
-            <OnOff/>
             <UncontrolledAccordion titleValue={'Menu'}/>
             <UncontrolledAccordion titleValue={'Users'}/>
             <UncontrolledRating/>
+            <UnControlledOnOff setStyle={setStyle}/>{style.toString()}
         </div>
     );
 }
