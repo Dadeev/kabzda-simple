@@ -6,22 +6,19 @@ import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
+import Accordion from "./components/Accordion/Accordion";
 
 
 function App() {
     console.log('App rendering')
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
 
     return (
         <div className="App">
-            {/*<UncontrolledAccordion titleValue={'Menu'} collapsed={true}/>*/}
-            {/*<UncontrolledAccordion titleValue={'Users'} collapsed={false}/>*/}
-            {/*<UncontrolledRating value={0}/>*/}
-            {/*<UncontrolledRating value={1}/>*/}
-            {/*<UncontrolledRating value={2}/>*/}
-            {/*<UncontrolledRating value={3}/>*/}
-            {/*<UncontrolledRating value={4}/>*/}
-            {/*<UncontrolledRating value={5}/>*/}
+            <Accordion accordionCollapsed={accordionCollapsed} onClick={()=>setAccordionCollapsed(!accordionCollapsed)} titleValue={'Menu'}/>
+
+            <UncontrolledRating/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <OnOff/>
             <OnOff/>
