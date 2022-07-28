@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-// import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
-// import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import Accordion from "./components/Accordion/Accordion";
 import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOff";
+import {action} from "@storybook/addon-actions";
 
 
 function App() {
@@ -15,13 +14,21 @@ function App() {
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
     const [style, setStyle] = useState(false)
+    const onClick2CallBack = () => action('some item was clicked')
 
 
     return (
         <div className="App">
             {/*<OnOff style={style} setStyle={setStyle}/>*/}
             <Accordion accordionCollapsed={accordionCollapsed}
-                       onClick={() => setAccordionCollapsed(!accordionCollapsed)} titleValue={'Menu'}/>
+                       onClick={() => setAccordionCollapsed(!accordionCollapsed)} onClick2={onClick2CallBack}
+                       titleValue={'Menu'}
+                       items={[
+                           {title: 'Dima', value: 1},
+                           {title: 'Valera', value: 2},
+                           {title: 'Vika', value: 3},
+                           {title: 'Masha', value: 4}
+                       ]}/>
             <UncontrolledRating/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledAccordion titleValue={'Menu'}/>
