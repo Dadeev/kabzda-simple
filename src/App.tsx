@@ -7,12 +7,14 @@ import {Rating, RatingValueType} from "./components/Rating/Rating";
 import Accordion from "./components/Accordion/Accordion";
 import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOff";
 import {action} from "@storybook/addon-actions";
+import {Select} from "./components/Select/Select";
 
 
 function App() {
     console.log('App rendering')
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+    const [value, setValue] = useState('1')
     const [style, setStyle] = useState(false)
     const onClick2CallBack = () => action('some item was clicked')
 
@@ -35,6 +37,11 @@ function App() {
             <UncontrolledAccordion titleValue={'Users'}/>
             <UncontrolledRating/>
             <UnControlledOnOff setStyle={setStyle}/>{style.toString()}
+            <Select onChange={setValue} value={value} items={[
+                {value: '1', title: 'Minsk'},
+                {value: '2', title: 'Moscow'},
+                {value: '3', title: 'Kiev'}
+            ]}/>
         </div>
     );
 }
