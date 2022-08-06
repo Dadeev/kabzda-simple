@@ -8,6 +8,7 @@ import Accordion from "./components/Accordion/Accordion";
 import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOff";
 import {action} from "@storybook/addon-actions";
 import {Select} from "./components/Select/Select";
+import {Example1} from "./ReactMemo";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
                 {value: '2', title: 'Moscow'},
                 {value: '3', title: 'Kiev'}
             ]}/>
+            <Example1/>
         </div>
     );
 }
