@@ -13,7 +13,7 @@ type AccordionPropsType = {
     onClick2: (value: any) => void
 }
 
-function Accordion(props: AccordionPropsType) {
+function AccordionForMemo(props: AccordionPropsType) {
     console.log('UncontrolledAccordion rendering')
     return <div>
         <AccordionTitle title={props.titleValue} onClick={props.onClick} accordionCollapsed={props.accordionCollapsed}/>
@@ -21,25 +21,29 @@ function Accordion(props: AccordionPropsType) {
     </div>
 }
 
+const Accordion = React.memo(AccordionForMemo)
+
 type AccordionTitlePropsType = {
     title: string
     onClick: () => void
     accordionCollapsed: boolean
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+function AccordionTitleForMemo(props: AccordionTitlePropsType) {
     console.log('AccordionTitle rendering')
     return (
         <h3 onClick={(e) => props.onClick()}>--- {props.title} --- </h3>
     )
 }
 
+const AccordionTitle = React.memo(AccordionTitleForMemo)
+
 type AccordionBodyPropsType = {
     items: ItemType[]
     onClick: (value: any) => void
 }
 
-function AccordionBody(props: AccordionBodyPropsType) {
+function AccordionBodyForMemo(props: AccordionBodyPropsType) {
     console.log('AccordionBody rendering')
     return (<ul>
             {props.items.map((i, index) => <li onClick={() => props.onClick(i.value)} key={index}>{i.title}</li>)}
@@ -47,5 +51,6 @@ function AccordionBody(props: AccordionBodyPropsType) {
     )
 }
 
+const AccordionBody = React.memo(AccordionBodyForMemo)
 
 export default Accordion;

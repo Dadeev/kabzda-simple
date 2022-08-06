@@ -6,7 +6,7 @@ type onOffType = {
     setStyle: (style: boolean)=> void
 }
 
-export const OnOff: React.FC<onOffType> = ({style, setStyle}) => {
+export const OnOffForMemo: React.FC<onOffType> = ({style, setStyle}) => {
     const on = false;
 
     const onStyle = {
@@ -46,3 +46,5 @@ export const OnOff: React.FC<onOffType> = ({style, setStyle}) => {
         </div>
     )
 }
+
+export const OnOff = React.memo(OnOffForMemo)

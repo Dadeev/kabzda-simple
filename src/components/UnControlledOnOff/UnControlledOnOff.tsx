@@ -4,7 +4,7 @@ type onOffType = {
     setStyle: (style: boolean) => void
 }
 
-export const UnControlledOnOff: React.FC<onOffType> = ({setStyle}) => {
+export const UnControlledOnOffForMemo: React.FC<onOffType> = ({setStyle}) => {
     const on = false;
 
     const [On, setOn] = useState(true)
@@ -56,3 +56,5 @@ export const UnControlledOnOff: React.FC<onOffType> = ({setStyle}) => {
         </div>
     )
 }
+
+export const UnControlledOnOff = React.memo(UnControlledOnOffForMemo)

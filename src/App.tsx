@@ -10,7 +10,6 @@ import {action} from "@storybook/addon-actions";
 import {Select} from "./components/Select/Select";
 import {Example1} from "./ReactMemo";
 
-
 function App() {
     console.log('App rendering')
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
