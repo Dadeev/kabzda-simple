@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './App.css';
-import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
@@ -9,6 +8,7 @@ import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOf
 import {action} from "@storybook/addon-actions";
 import {Select} from "./components/Select/Select";
 import {Example1} from "./ReactMemo";
+import {DifficultCountingExample} from "./UseMemo";
 
 function App() {
     console.log('App rendering')
@@ -43,6 +43,7 @@ function App() {
                 {value: '3', title: 'Kiev'}
             ]}/>
             <Example1/>
+            <DifficultCountingExample/>
         </div>
     );
 }
