@@ -8,7 +8,8 @@ import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOf
 import {action} from "@storybook/addon-actions";
 import {Select} from "./components/Select/Select";
 import {Example1} from "./ReactMemo";
-import {DifficultCountingExample} from "./UseMemo";
+import {Book, DifficultCountingExample, LikeUseCallback} from "./UseMemoUseCallback";
+import {UseMemoSelect} from "./components/UseMemoSelect/UseMemoSelect";
 
 function App() {
     console.log('App rendering')
@@ -44,6 +45,7 @@ function App() {
             ]}/>
             <Example1/>
             <DifficultCountingExample/>
+            <LikeUseCallback/>
         </div>
     );
 }
