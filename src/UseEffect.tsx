@@ -24,3 +24,21 @@ export const SimpleExample = () => {
         <button onClick={() => setCounter(counter + 1)}>+</button>
     </>
 }
+
+export const SetTimeoutExample = () => {
+    const [fake, setFake] = useState(1)
+    const [counter, setCounter] = useState(1) // [1, function(newValue){}]
+    let [time, setTime] = useState('time...')
+    console.log('SetTimeoutExample')
+
+    useEffect(() => {
+        setInterval(() => {
+            let date = new Date;
+            setTime(date.toLocaleTimeString())
+        }, 1000)
+
+    }, [])
+    return <>
+        Hello, the global time is : {time}
+    </>
+}
