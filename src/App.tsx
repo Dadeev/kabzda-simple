@@ -10,6 +10,7 @@ import {Select} from "./components/Select/Select";
 import {Example1} from "./ReactMemo";
 import {DifficultCountingExample, LikeUseCallback} from "./UseMemoUseCallback";
 import {Lesson20Example1} from "./UseState";
+import {SimpleExample} from "./UseEffect";
 
 function App() {
     console.log('App rendering')
@@ -46,7 +47,7 @@ function App() {
             <Example1/>
             <DifficultCountingExample/>
             <LikeUseCallback/>
-            <Lesson20Example1/>
+            <SimpleExample/>
         </div>
     );
 }
