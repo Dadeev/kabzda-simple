@@ -25,11 +25,8 @@ export const SimpleExample = () => {
     </>
 }
 
-export const SetTimeoutExample = () => {
-    const [fake, setFake] = useState(1)
-    const [counter, setCounter] = useState(1) // [1, function(newValue){}]
+export const CLock = () => {
     let [time, setTime] = useState('time...')
-    console.log('SetTimeoutExample')
 
     useEffect(() => {
         setInterval(() => {

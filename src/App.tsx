@@ -10,7 +10,9 @@ import {Select} from "./components/Select/Select";
 import {Example1} from "./ReactMemo";
 import {DifficultCountingExample, LikeUseCallback} from "./UseMemoUseCallback";
 import {Lesson20Example1} from "./UseState";
-import {SetTimeoutExample, SimpleExample} from "./UseEffect";
+import {CLock, SimpleExample} from "./UseEffect";
+import {ExampleCLock} from "./ExampleCLock";
+import {MainClock} from "./Clock/MainClock";
 
 function App() {
     console.log('App rendering')
@@ -47,7 +49,8 @@ function App() {
             <Example1/>
             <DifficultCountingExample/>
             <LikeUseCallback/>
-            <SetTimeoutExample/>
+            |----Here is a clock---|
+            <MainClock value={true}/>
         </div>
     );
 }
