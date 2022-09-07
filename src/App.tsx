@@ -10,6 +10,7 @@ import {Select} from "./components/Select/Select";
 import {Example1} from "./ReactMemo";
 import {DifficultCountingExample, LikeUseCallback} from "./UseMemoUseCallback";
 import {ExampleCLock} from "./Clock/Clock";
+import {KeysTracketExample, ResetEffectExample} from "./UseEffect";
 
 
 function App() {
@@ -50,6 +51,8 @@ function App() {
             |----Here is a clock---|
             <ExampleCLock mode={'analog'}/>
             <ExampleCLock mode={'digital'}/>
+            <ResetEffectExample/>
+            <KeysTracketExample/>
         </div>
     );
 }

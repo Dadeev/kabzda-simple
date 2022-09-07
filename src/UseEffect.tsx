@@ -1,4 +1,5 @@
-import React, {useEffect, useMemo, useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import {cleanup} from "@testing-library/react";
 
 
 export const SimpleExample = () => {
@@ -25,17 +26,64 @@ export const SimpleExample = () => {
     </>
 }
 
-export const CLock = () => {
-    let [time, setTime] = useState('time...')
+export const ResetEffectExample = () => {
+    let [counter, setCounter] = useState(1)
+
+    console.log('ResetEffectExample')
 
     useEffect(() => {
-        setInterval(() => {
-            let date = new Date;
-            setTime(date.toLocaleTimeString())
-        }, 1000)
+        console.log('Effect occured' + counter)
+        return () => {
+            console.log('Reset effect' + counter)
+        }
+    }, [counter])
 
+    const increase = () => {
+        setCounter(counter + 1)
+    }
+    return <div>
+        Hello, counter is : {counter}
+        <button onClick={increase}>+1</button>
+    </div>
+}
+
+export const KeysTracketExample = () => {
+    let [text, setText] = useState('')
+
+    console.log('ResetEffectExample' + text)
+
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText(text + e.key)
+        }
+        document.addEventListener('keypress', handler)
+        return () => {
+            document.removeEventListener('keypress', handler)
+        }
+    }, [text])
+
+    return <div>
+        Typed text: {text}
+    </div>
+}
+
+
+export const SetIntervalExample = () => {
+    let [counter, setCounter] = useState('')
+
+    console.log('ResetEffectExample')
+
+    useEffect(() => {
+        let id = setTimeout(() => {
+            setCounter(state => state + 1)
+        })
+        return () => {
+            clearTimeout(id)
+        }
     }, [])
-    return <>
-        Hello, the global time is : {time}
-    </>
+
+    return <div>
+        Typed text: {counter}
+    </div>
 }
