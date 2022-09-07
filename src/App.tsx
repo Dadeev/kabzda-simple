@@ -9,10 +9,8 @@ import {action} from "@storybook/addon-actions";
 import {Select} from "./components/Select/Select";
 import {Example1} from "./ReactMemo";
 import {DifficultCountingExample, LikeUseCallback} from "./UseMemoUseCallback";
-import {Lesson20Example1} from "./UseState";
-import {CLock, SimpleExample} from "./UseEffect";
-import {ExampleCLock} from "./ExampleCLock";
-import {MainClock} from "./Clock/MainClock";
+import {ExampleCLock} from "./Clock/Clock";
+
 
 function App() {
     console.log('App rendering')
@@ -50,7 +48,8 @@ function App() {
             <DifficultCountingExample/>
             <LikeUseCallback/>
             |----Here is a clock---|
-            <MainClock value={true}/>
+            <ExampleCLock mode={'analog'}/>
+            <ExampleCLock mode={'digital'}/>
         </div>
     );
 }
